@@ -1042,6 +1042,9 @@ nav a:hover {
 
     gap:
         20px;
+
+    align-items:
+        stretch;
 }
 
 
@@ -1065,6 +1068,9 @@ nav a:hover {
     grid-template-columns:
         55px 1fr;
 
+    height:
+        100%;
+
     transition:
         .35s ease;
 }
@@ -1084,13 +1090,6 @@ nav a:hover {
 }
 
 
-.featured-project {
-
-    grid-column:
-        1 / -1;
-}
-
-
 .project-number {
 
     color:
@@ -1101,6 +1100,19 @@ nav a:hover {
 
     font-weight:
         700;
+}
+
+
+.project-content {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    height:
+        100%;
 }
 
 
@@ -1161,6 +1173,23 @@ nav a:hover {
 
     font-size:
         11px;
+
+    transition:
+        var(--transition);
+}
+
+
+.project-features span:hover,
+.tech-stack span:hover {
+
+    color:
+        var(--text);
+
+    border-color:
+        var(--purple);
+
+    transform:
+        translateY(-2px);
 }
 
 
@@ -1258,7 +1287,6 @@ nav a:hover {
     font-size:
         13px;
 }
-
 
 /* ================= MINI PROJECTS ================= */
 
