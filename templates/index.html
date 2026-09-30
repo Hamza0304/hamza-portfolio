@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ language }}" dir="{{ direction }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hamza Senhaji | Software Developer</title>
+    <title>{{ t.page_title }}</title>
+    <link rel="icon" type="image/jpeg" href="{{ url_for('static', filename='images/HS.jpg') }}" class="HS">
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
@@ -17,6 +18,9 @@
           rel="stylesheet">
 
 <style>
+.HS{
+    border-radius: 30px;
+}
 .project-links {
     display: flex;
     flex-wrap: wrap;
@@ -58,22 +62,31 @@
 </a>
 
     <nav>
-        <a href="#profile">Profile</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="#profile">{{ t.nav_profile }}</a>
+        <a href="#experience">{{ t.nav_experience }}</a>
+        <a href="#projects">{{ t.nav_projects }}</a>
+        <a href="#skills">{{ t.nav_skills }}</a>
+        <a href="#contact">{{ t.nav_contact }}</a>
     </nav>
 
     <div class="nav-right">
+
+                    <details class="language-menu">
+                <summary aria-label="Select language"><span aria-hidden="true">&#127760;</span> {{ language|upper }} <span class="language-caret" aria-hidden="true">&#9662;</span></summary>
+                <div class="language-options">
+                    <a href="/?lang=en" lang="en" {% if language == 'en' %}aria-current="true"{% endif %}>English</a>
+                    <a href="/?lang=fr" lang="fr" {% if language == 'fr' %}aria-current="true"{% endif %}>Fran&#231;ais</a>
+                    <a href="/?lang=ar" lang="ar" {% if language == 'ar' %}aria-current="true"{% endif %}>&#1575;&#1604;&#1593;&#1585;&#1576;&#1610;&#1577;</a>
+                </div>
+            </details>
 
         <button id="themeToggle" class="theme-btn">
             ☀️
         </button>
 
-        <a href="#contact" class="nav-contact">
-            Contact Me
-        </a>
+        <!--<a href="#contact" class="nav-contact">
+            {{ t.contact_me }}
+        </a>-->
 
     </div>
 
@@ -87,32 +100,30 @@
     <div class="hero-content">
 
         <p class="eyebrow">
-            SOFTWARE DEVELOPER • WEB • AI
+            {{ t.hero_eyebrow }}
         </p>
 
         <h1>
-            Hi, I'm
+            {{ t.hero_hi }}
             <span>Hamza Senhaji.</span>
         </h1>
 
         <h2>
-            I build digital solutions that solve real problems.
+            {{ t.hero_tagline }}
         </h2>
 
         <p class="hero-text">
-            Computer Science graduate passionate about software development,
-            web technologies, artificial intelligence and practical
-            problem solving.
+            {{ t.hero_intro }}
         </p>
 
         <div class="hero-buttons">
 
             <a href="#projects" class="btn primary">
-                View Projects
+                {{ t.view_projects }}
             </a>
 
             <a href="#contact" class="btn secondary">
-                Contact Me
+                {{ t.contact_me }}
             </a>
 
         </div>
@@ -121,17 +132,17 @@
 
             <div>
                 <strong>2026</strong>
-                <span>Graduate</span>
+                <span>{{ t.graduate }}</span>
             </div>
 
             <div>
                 <strong>AI</strong>
-                <span>Focused</span>
+                <span>{{ t.focused }}</span>
             </div>
 
             <div>
                 <strong>Software</strong>
-                <span>Engineering</span>
+                <span>{{ t.engineering }}</span>
             </div>
 
         </div>
@@ -207,12 +218,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            PROFILE
+            {{ t.profile_eyebrow }}
         </p>
 
         <h2>
-            A developer focused on
-            <span>real solutions.</span>
+            {{ t.profile_heading }}
+            <span>{{ t.real_solutions }}</span>
         </h2>
 
     </div>
@@ -223,15 +234,11 @@
         <div class="profile-text">
 
             <p>
-                I am a Computer Science graduate with a strong interest
-                in software development, web applications and artificial
-                intelligence.
+                {{ t.profile_p1 }}
             </p>
 
             <p>
-                I enjoy transforming ideas into practical applications,
-                working from database design and backend development
-                to testing, deployment and continuous improvement.
+                {{ t.profile_p2 }}
             </p>
 
         </div>
@@ -241,26 +248,26 @@
 
             <div class="info-card">
                 <span>01</span>
-                <h3>Problem Solving</h3>
-                <p>Turning real problems into practical software solutions.</p>
+                <h3>{{ t.problem_solving }}</h3>
+                <p>{{ t.problem_desc }}</p>
             </div>
 
             <div class="info-card">
                 <span>02</span>
-                <h3>Learning</h3>
-                <p>Fast learner who enjoys exploring new technologies.</p>
+                <h3>{{ t.learning }}</h3>
+                <p>{{ t.learning_desc }}</p>
             </div>
 
             <div class="info-card">
                 <span>03</span>
-                <h3>Development</h3>
-                <p>Building complete software projects with real-world use cases and practical impact.</p>
+                <h3>{{ t.development }}</h3>
+                <p>{{ t.development_desc }}</p>
             </div>
 
             <div class="info-card">
                 <span>04</span>
-                <h3>Technology</h3>
-                <p>Working with modern tools across web, desktop, AI, databases, and software development.</p>
+                <h3>{{ t.technology }}</h3>
+                <p>{{ t.technology_desc }}</p>
             </div>
 
         </div>
@@ -277,12 +284,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            EDUCATION
+            {{ t.education }}
         </p>
 
         <h2>
-            My academic
-            <span>journey.</span>
+            {{ t.academic }}
+            <span>{{ t.journey }}</span>
         </h2>
 
     </div>
@@ -299,17 +306,17 @@
                 <span>2022 — 2026</span>
 
                 <h3>
-                    Bachelor's of Engineering Degree
+                    {{ t.bachelors }}
                 </h3>
 
                 <h4>
-                    Computer Science and Technology
+                    {{ t.cs_degree }}
                 </h4>
 
                 <p>
                     China Jiliang University
                     <br>
-                    College of Information Engineering
+                    {{ t.college }}
                 </p>
 
             </div>
@@ -326,7 +333,7 @@
                 <span>2022</span>
 
                 <h3>
-                    High School Diploma
+                    {{ t.high_school }}
                 </h3>
 
                 <h4>
@@ -354,12 +361,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            EXPERIENCE
+            {{ t.experience }}
         </p>
 
         <h2>
-            Professional
-            <span>experience.</span>
+            {{ t.professional_experience }}
+            <span>{{ t.experience_word }}</span>
         </h2>
 
     </div>
@@ -372,7 +379,7 @@
             <div>
 
                 <span class="label">
-                    INTERNSHIP
+                    {{ t.internship }}
                 </span>
 
                 <h3>
@@ -380,13 +387,13 @@
                 </h3>
 
                 <p>
-                    Marrakech, Morocco
+                    {{ t.marrakech }}
                 </p>
 
             </div>
 
             <div class="experience-role">
-                Software Engineering/IT
+                {{ t.role }}
             </div>
 
         </div>
@@ -395,19 +402,16 @@
         <div class="experience-body">
 
             <p>
-                Gained practical experience in a professional hospitality
-                environment and developed a better understanding of hotel
-                operations, technical workflows and real-world problem
-                solving.
+                {{ t.experience_desc }}
             </p>
 
             <div class="experience-tags">
-                <span>IT Support</span>
+                <span>{{ t.experience_it_support }}</span>
                 <span>Teamwork</span>
                 <span>Problem Solving</span>
                 <span>Hospitality Technology</span>
                 <span>Software Engineering</span>
-                <span>Networking</span>
+                <span>{{ t.networking }}</span>
                 <span>IT</span>
             </div>
 
@@ -426,12 +430,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            FEATURED PROJECTS
+            {{ t.featured_projects }}
         </p>
 
         <h2>
-            Things I have
-            <span>built.</span>
+            {{ t.things_built }}
+            <span>{{ t.built }}</span>
         </h2>
 
     </div>
@@ -453,7 +457,7 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    DESKTOP APPLICATION • FULL-STACK • AI
+                    {{ t.project_desktop_ai }}
                 </span>
                 <div class ="project-image">
                     <img src="{{ url_for('static', filename='images/smart-hotel.png') }}"
@@ -471,49 +475,43 @@
                 </h3>-->
 
                 <p>
-                  <p> A centralized hotel management platform built to coordinate daily operations across reception,
-                     administration and supervision. The desktop application manages guests, reservations, rooms, billing, workers,
-                      departments and maintenance through role-based dashboards,
-                       while a centralized MySQL database keeps operational data synchronized across connected workstations.
-                        Its maintenance system includes an AI-assisted recommendation engine that evaluates worker skills,
-                         availability, proximity and workload to suggest suitable technicians for reported problems,
-                          providing a unified system for hotel operations, monitoring and reporting. </p>
+                  <p>{{ t.hotel_description }}</p>
                 </p>
 
 
                 <div class="project-features">
 
-                    <span>Hotel Management</span>
-                    <span>Room Management</span>
-                    <Span>Worker Management</span>
-                    <span>Reception</span>
-                    <span>Reservations</span>
-                    <span>Billing</span>
-                    <span>Maintenance</span>
-                    <span>AI Recommendations</span>
-                    <span>Reports</span>
-                    <span>Multi-Role Dashboard</span>
+                    <span>{{ t.hotel_feature }}</span>
+                    <span>{{ t.room_feature }}</span>
+                    <Span>{{ t.worker_feature }}</span>
+                    <span>{{ t.reception }}</span>
+                    <span>{{ t.reservations }}</span>
+                    <span>{{ t.billing }}</span>
+                    <span>{{ t.maintenance }}</span>
+                    <span>{{ t.ai_recommendations }}</span>
+                    <span>{{ t.reports }}</span>
+                    <span>{{ t.multi_dashboard }}</span>
 
                 </div>
 
 
                 <div class="deployment">
 
-                    <strong>Development:</strong>
+                    <strong>{{ t.development_label }}</strong>
 
-                    <span>Local</span>
-
-                    <b>→</b>
-
-                    <span>Testing</span>
+                    <span>{{ t.local }}</span>
 
                     <b>→</b>
 
-                    <span>Desktop App</span>
+                    <span>{{ t.testing }}</span>
 
                     <b>→</b>
 
-                    <span>Live Demo</span>
+                    <span>{{ t.desktop_app }}</span>
+
+                    <b>→</b>
+
+                    <span>{{ t.live_demo }}</span>
 
                 </div>
 
@@ -538,7 +536,7 @@
                     <a href="https://smart-hotel-web-page-9js57.faable.link/"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Live Website
+                        {{ t.live_website }}
                     </a>
 
                 </div>
@@ -562,7 +560,7 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    DESKTOP APPLICATION • IT MANAGEMENT
+                    {{ t.project_desktop_it }}
                 </span>
 
                 <div class ="project-image">
@@ -577,14 +575,7 @@
 
                                 
                 <p>
-                    A centralized IT management platform built to discover, inventory and
-                    monitor Windows computers across a local network. Its network discovery
-                    engine identifies active devices using IP, MAC and network probing,
-                    while a lightweight Windows agent collects detailed hardware, operating
-                    system, storage, network and software information and synchronizes it
-                    with the central management server. The platform transforms this data
-                    into a unified inventory for computer assignment, department management,
-                    maintenance tracking and IT reporting.
+                    {{ t.console_description }}
                 </p>
 
 
@@ -592,34 +583,34 @@
 
                 <div class="project-features">
 
-                    <span>Computer Inventory</span>
-                    <span>Network Discovery</span>
-                    <span>Asset Management</span>
-                    <span>Maintenance</span>
-                    <span>Departments</span>
-                    <span>Reports</span>
-                    <span>Agent System</span>
+                    <span>{{ t.computer_inventory }}</span>
+                    <span>{{ t.network_discovery }}</span>
+                    <span>{{ t.asset_management }}</span>
+                    <span>{{ t.maintenance }}</span>
+                    <span>{{ t.departments }}</span>
+                    <span>{{ t.reports }}</span>
+                    <span>{{ t.agent_system }}</span>
 
                 </div>
 
 
                 <div class="deployment">
 
-                    <strong>Development:</strong>
+                    <strong>{{ t.development_label }}</strong>
 
-                    <span>Local</span>
-
-                    <b>→</b>
-
-                    <span>Network Testing</span>
+                    <span>{{ t.local }}</span>
 
                     <b>→</b>
 
-                    <span>Desktop Application</span>
+                    <span>{{ t.network_testing }}</span>
 
                     <b>→</b>
 
-                    <span>Deployment</span>
+                    <span>{{ t.desktop_application }}</span>
+
+                    <b>→</b>
+
+                    <span>{{ t.deployment }}</span>
 
                 </div>
 
@@ -631,7 +622,7 @@
                     <span>Flask</span>
                     <span>SQLite</span>
                     <span>Windows</span>
-                    <span>Networking</span>
+                    <span>{{ t.networking }}</span>
                     <span>REST API</span>
 
                 </div>
@@ -642,7 +633,7 @@
                     <a href="https://management-console-f0eeo.faable.link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Live Website
+                        {{ t.live_website }}
                     </a>
 
                 </div>
@@ -665,7 +656,7 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    WEB APPLICATION • FILE PROCESSING
+                    {{ t.project_web_files }}
                 </span>
                 <div class ="project-image">
                     <img src="{{ url_for('static', filename='images/FileFlow.png') }}"
@@ -679,12 +670,7 @@
 
                 
                 <p>
-                    A web-based file conversion platform that allows users to convert
-                    images, PDFs and Word documents directly from the browser without
-                    creating an account. The system provides dedicated conversion
-                    workflows for image and document processing, supports batch image
-                    conversion and PDF operations, and generates temporary downloadable
-                    files through a structured Flask backend.
+                    {{ t.fileflow_description }}
                 </p>
 
 
@@ -692,33 +678,33 @@
 
                 <div class="project-features">
 
-                    <span>Image Conversion</span>
-                    <span>PDF Tools</span>
-                    <span>Document Conversion</span>
-                    <span>Batch Processing</span>
-                    <span>No Account Required</span>
-                    <span>Temporary Downloads</span>
+                    <span>{{ t.image_conversion }}</span>
+                    <span>{{ t.pdf_tools }}</span>
+                    <span>{{ t.document_conversion }}</span>
+                    <span>{{ t.batch_processing }}</span>
+                    <span>{{ t.no_account }}</span>
+                    <span>{{ t.temporary_downloads }}</span>
 
                 </div>
 
 
                 <div class="deployment">
 
-                    <strong>Development:</strong>
+                    <strong>{{ t.development_label }}</strong>
 
-                    <span>Local</span>
-
-                    <b>→</b>
-
-                    <span>Testing</span>
+                    <span>{{ t.local }}</span>
 
                     <b>→</b>
 
-                    <span>Installer</span>
+                    <span>{{ t.testing }}</span>
 
                     <b>→</b>
 
-                    <span>Release</span>
+                    <span>{{ t.installer }}</span>
+
+                    <b>→</b>
+
+                    <span>{{ t.release }}</span>
 
                 </div>
 
@@ -742,7 +728,7 @@
                     <a href="https://fileflow-cpybw.faable.link"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Live Website
+                        {{ t.live_website }}
                     </a>
 
                 </div>
@@ -766,7 +752,7 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    DESKTOP APPLICATION • SOFTWARE
+                    {{ t.project_desktop_software }}
                 </span>
                 <div class ="project-image">
                     <img src="{{ url_for('static', filename='images/ConvertManager.png') }}"
@@ -781,42 +767,39 @@
                 
 
                 <p>
-                    A desktop file conversion application designed to
-                    simplify image and document conversion through a
-                    clean interface with drag-and-drop support,
-                    multiple formats and batch processing.
+                    {{ t.convertmanager_description }}
                 </p>
 
 
                 <div class="project-features">
 
-                    <span>Image Conversion</span>
-                    <span>Document Conversion</span>
-                    <span>Drag & Drop</span>
-                    <span>Multiple Formats</span>
-                    <span>Batch Processing</span>
-                    <span>Desktop Application</span>
+                    <span>{{ t.image_conversion }}</span>
+                    <span>{{ t.document_conversion }}</span>
+                    <span>{{ t.drag_drop }}</span>
+                    <span>{{ t.multiple_formats }}</span>
+                    <span>{{ t.batch_processing }}</span>
+                    <span>{{ t.desktop_application }}</span>
 
                 </div>
 
 
                 <div class="deployment">
 
-                    <strong>Development:</strong>
+                    <strong>{{ t.development_label }}</strong>
 
-                    <span>Local</span>
-
-                    <b>→</b>
-
-                    <span>Testing</span>
+                    <span>{{ t.local }}</span>
 
                     <b>→</b>
 
-                    <span>Installer</span>
+                    <span>{{ t.testing }}</span>
 
                     <b>→</b>
 
-                    <span>Release</span>
+                    <span>{{ t.installer }}</span>
+
+                    <b>→</b>
+
+                    <span>{{ t.release }}</span>
 
                 </div>
 
@@ -837,7 +820,7 @@
                     <a href="https://convertmanager-ymaa1.faable.link/"
                        target="_blank"
                        rel="noopener noreferrer">
-                        Live Website
+                        {{ t.live_website }}
                     </a>
 
                 </div>
@@ -859,7 +842,7 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    FULL-STACK • AI • WEB APPLICATION
+                    {{ t.project_fullstack_ai }}
                 </span>
 
                 <h3>
@@ -867,42 +850,39 @@
                 </h3>
 
                 <p>
-                    A web-based maintenance management system designed
-                    for hotels to report problems, manage technicians
-                    and housekeeping staff, and intelligently recommend
-                    suitable workers for maintenance tasks.
+                    {{ t.ai_maintenance_description }}
                 </p>
 
 
                 <div class="project-features">
 
-                    <span>Maintenance Reports</span>
-                    <span>Worker Management</span>
-                    <span>AI Assignment</span>
-                    <span>Task Management</span>
-                    <span>Public Reporting</span>
-                    <span>Dashboards</span>
+                    <span>{{ t.maintenance_reports }}</span>
+                    <span>{{ t.worker_feature }}</span>
+                    <span>{{ t.ai_assignment }}</span>
+                    <span>{{ t.task_management }}</span>
+                    <span>{{ t.public_reporting }}</span>
+                    <span>{{ t.dashboards }}</span>
 
                 </div>
 
 
                 <div class="deployment">
 
-                    <strong>Development:</strong>
+                    <strong>{{ t.development_label }}</strong>
 
-                    <span>Local</span>
-
-                    <b>→</b>
-
-                    <span>Testing</span>
+                    <span>{{ t.local }}</span>
 
                     <b>→</b>
 
-                    <span>Belmo Hosting</span>
+                    <span>{{ t.testing }}</span>
 
                     <b>→</b>
 
-                    <span>Live</span>
+                    <span>{{ t.hosting }}</span>
+
+                    <b>→</b>
+
+                    <span>{{ t.live }}</span>
 
                 </div>
 
@@ -937,7 +917,7 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    GRADUATION PROJECT • COMPUTER VISION • AI
+                    {{ t.project_graduation_ai }}
                 </span>
 
                 <h3>
@@ -945,10 +925,7 @@
                 </h3>
 
                 <p>
-                    An automated computer vision system developed to
-                    detect defects in lithium battery images captured
-                    under UV lighting using the YOLOv8 object detection
-                    model.
+                    {{ t.battery_description }}
                 </p>
 
 
@@ -964,19 +941,16 @@
 
 
                 <p>
-                    Trained YOLOv8s on 138 annotated images across
-                    four defect categories and developed a Flask
-                    interface for image upload and detection result
-                    visualization.
+                    {{ t.battery_results }}
                 </p>
 
 
                 <div class="project-features">
 
-                    <span>Object Detection</span>
-                    <span>UV Imaging</span>
-                    <span>Defect Detection</span>
-                    <span>Computer Vision</span>
+                    <span>{{ t.object_detection }}</span>
+                    <span>{{ t.uv_imaging }}</span>
+                    <span>{{ t.defect_detection }}</span>
+                    <span>{{ t.computer_vision }}</span>
 
                 </div>
 
@@ -1010,12 +984,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            ACADEMIC PROJECTS
+            {{ t.academic_projects }}
         </p>
 
         <h2>
-            More things I have
-            <span>worked on.</span>
+            {{ t.more_work }}
+            <span>{{ t.worked_on }}</span>
         </h2>
 
     </div>
@@ -1032,8 +1006,7 @@
             </h3>
 
             <p>
-                Spring Boot and MySQL web application with user roles,
-                event registration and data visualization.
+                {{ t.event_description }}
             </p>
 
             <small>
@@ -1052,8 +1025,7 @@
             </h3>
 
             <p>
-                Android application integrating a weather API,
-                city selection and real-time weather information.
+                {{ t.weather_description }}
             </p>
 
             <small>
@@ -1072,8 +1044,7 @@
             </h3>
 
             <p>
-                Android audio playback application with playlist
-                management and custom interface.
+                {{ t.music_description }}
             </p>
 
             <small>
@@ -1092,8 +1063,7 @@
             </h3>
 
             <p>
-                Relational database system with CRUD operations
-                for library management.
+                {{ t.library_description }}
             </p>
 
             <small>
@@ -1112,8 +1082,7 @@
             </h3>
 
             <p>
-                Natural language processing system developed
-                for automated response generation.
+                {{ t.chatbot_description }}
             </p>
 
             <small>
@@ -1132,8 +1101,7 @@
             </h3>
 
             <p>
-                Intelligent quiz application featuring
-                voice interaction.
+                {{ t.learning_app_description }}
             </p>
 
             <small>
@@ -1152,8 +1120,7 @@
             </h3>
 
             <p>
-                3D simulation game developed using OpenGL
-                and computer graphics techniques.
+                {{ t.solar_description }}
             </p>
 
             <small>
@@ -1174,12 +1141,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            SKILLS
+            {{ t.skills }}
         </p>
 
         <h2>
-            My technical
-            <span>toolbox.</span>
+            {{ t.toolbox_heading }}
+            <span>{{ t.toolbox }}</span>
         </h2>
 
     </div>
@@ -1189,37 +1156,37 @@
 
         <div class="skill-card">
             <span>01</span>
-            <h3>Programming</h3>
+            <h3>{{ t.programming }}</h3>
             <p>Java · Python · C</p>
         </div>
 
         <div class="skill-card">
             <span>02</span>
-            <h3>Frameworks & Libraries</h3>
+            <h3>{{ t.frameworks }}</h3>
             <p>Flask · Spring Boot · OpenCV · YOLOv8</p>
         </div>
 
         <div class="skill-card">
             <span>03</span>
-            <h3>Web Development</h3>
+            <h3>{{ t.web_development }}</h3>
             <p>HTML · CSS · JavaScript Basics</p>
         </div>
 
         <div class="skill-card">
             <span>04</span>
-            <h3>Databases</h3>
+            <h3>{{ t.databases }}</h3>
             <p>MySQL · SQL</p>
         </div>
 
         <div class="skill-card">
             <span>05</span>
-            <h3>Tools</h3>
+            <h3>{{ t.tools }}</h3>
             <p>Android Studio · Git · VS Code</p>
         </div>
 
         <div class="skill-card">
             <span>06</span>
-            <h3>Computer Science</h3>
+            <h3>{{ t.computer_science }}</h3>
             <p>OOP · Data Structures · Networking · Cloud Fundamentals</p>
         </div>
 
@@ -1235,12 +1202,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            QUALITIES
+            {{ t.qualities }}
         </p>
 
         <h2>
-            What I bring to a
-            <span>team.</span>
+            {{ t.team_heading }}
+            <span>{{ t.team }}</span>
         </h2>
 
     </div>
@@ -1248,14 +1215,14 @@
 
     <div class="qualities">
 
-        <div>Problem Solving</div>
-        <div>Teamwork</div>
-        <div>Fast Learner</div>
-        <div>Communication</div>
-        <div>Time Management</div>
-        <div>Sense of Responsibility</div>
-        <div>Organization</div>
-        <div>Rigor</div>
+        <div>{{ t.problem_solve_quality }}</div>
+        <div>{{ t.teamwork_quality }}</div>
+        <div>{{ t.fast_learner }}</div>
+        <div>{{ t.communication }}</div>
+        <div>{{ t.time_management }}</div>
+        <div>{{ t.responsibility }}</div>
+        <div>{{ t.organization }}</div>
+        <div>{{ t.rigor }}</div>
 
     </div>
 
@@ -1269,12 +1236,12 @@
     <div class="section-heading">
 
         <p class="eyebrow">
-            LANGUAGES
+            {{ t.languages }}
         </p>
 
         <h2>
-            Communication
-            <span>skills.</span>
+            {{ t.communication_skills }}
+            <span>{{ t.skills_word }}</span>
         </h2>
 
     </div>
@@ -1284,22 +1251,22 @@
 
         <div>
             <strong>Arabic</strong>
-            <span>Native</span>
+            <span>{{ t.native }}</span>
         </div>
 
         <div>
             <strong>English</strong>
-            <span>Good Level</span>
+            <span>{{ t.good_level }}</span>
         </div>
 
         <div>
             <strong>French</strong>
-            <span>Medium Level</span>
+            <span>{{ t.medium_level }}</span>
         </div>
 
         <div>
             <strong>Chinese</strong>
-            <span>Good Level</span>
+            <span>{{ t.good_level }}</span>
         </div>
 
     </div>
@@ -1312,17 +1279,16 @@
 <section id="contact" class="contact">
 
     <p class="eyebrow">
-        CONTACT ME
+        {{ t.contact_eyebrow }}
     </p>
 
     <h2>
-        Let's build something
-        <span>great.</span>
+        {{ t.lets_build }}
+        <span>{{ t.great }}</span>
     </h2>
 
     <p>
-        I'm open to opportunities in software development,
-        web development and IT.
+        {{ t.contact_intro }}
     </p>
 
 
@@ -1332,7 +1298,7 @@
    target="_blank"
    class="email-button">
     <span>✉</span>
-    Email Me
+    {{ t.email_me }}
 </a>
 
         <a href="https://github.com/"
@@ -1365,37 +1331,40 @@
 
     <div class="footer-content">
 
-        <div>
+    <div class="footer-brand">
+
+        <div class="footer-brand-row">
+            <div class="myimage">
+                <img src="{{ url_for('static', filename='images/me.png') }}" alt="HS">
+            </div>
 
             <a href="#home" class="footer-logo">
                 HS<span>.</span>
             </a>
-
-            <p>
-                Software Developer • Web • AI
-            </p>
-
         </div>
 
+        <p>
+            {{ t.footer_tagline }}
+        </p>
+
+    </div>
 
         <div class="footer-links">
 
-            <a href="#profile">Profile</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+            <a href="#profile">{{ t.nav_profile }}</a>
+            <a href="#projects">{{ t.nav_projects }}</a>
+            <a href="#skills">{{ t.nav_skills }}</a>
+            <a href="#contact">{{ t.nav_contact }}</a>
 
         </div>
 
 
         <div class="footer-copy">
 
-            <p>
-                © 2026 Hamza Senhaji
-            </p>
+            <p>{{ t.footer_copyright }}</p>
 
             <p>
-                Built with Flask
+                {{ t.built_flask }}
             </p>
 
         </div>
@@ -1434,6 +1403,20 @@ themeButton.addEventListener("click", () => {
 
 });
 
+</script>
+
+<script>
+document.addEventListener("click", (event) => {
+    document.querySelectorAll(".language-menu[open]").forEach((menu) => {
+        if (!menu.contains(event.target)) menu.removeAttribute("open");
+    });
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        document.querySelectorAll(".language-menu[open]").forEach((menu) => menu.removeAttribute("open"));
+    }
+});
 </script>
 
 </body>
