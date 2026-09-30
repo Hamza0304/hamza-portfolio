@@ -51,8 +51,11 @@
 <header class="navbar">
 
     <a href="#home" class="logo">
-        HS<span>.</span>
-    </a>
+    <!--<div class="myimage">
+        <img src="{{ url_for('static', filename='images/me.png') }}" alt="HS">
+    </div>-->
+    <span class="logo-text">HS<span>.</span></span>
+</a>
 
     <nav>
         <a href="#profile">Profile</a>
@@ -127,8 +130,8 @@
             </div>
 
             <div>
-                <strong>Web</strong>
-                <span>Developer</span>
+                <strong>Software</strong>
+                <span>Engineering</span>
             </div>
 
         </div>
@@ -160,7 +163,7 @@
 
             <p class="indent">
                 education =
-                <span class="green">"Computer Science"</span>
+                <span class="green">"Computer Science And Technology"</span>
             </p>
 
             <p class="indent">
@@ -251,7 +254,13 @@
             <div class="info-card">
                 <span>03</span>
                 <h3>Development</h3>
-                <p>Building applications from idea to working system.</p>
+                <p>Building complete software projects with real-world use cases and practical impact.</p>
+            </div>
+
+            <div class="info-card">
+                <span>04</span>
+                <h3>Technology</h3>
+                <p>Working with modern tools across web, desktop, AI, databases, and software development.</p>
             </div>
 
         </div>
@@ -446,10 +455,20 @@
                 <span class="project-type">
                     DESKTOP APPLICATION • FULL-STACK • AI
                 </span>
-
-                <h3>
+                <div class ="project-image">
+                    <img src="{{ url_for('static', filename='images/smart-hotel.png') }}"
+                    alt="Smart Hotel logo">
+                    <h3>
                     Smart Hotel System Management
-                </h3>
+                    </h3>
+
+
+                </div>
+                
+
+                <!--<h3>
+                    Smart Hotel System Management
+                </h3>-->
 
                 <p>
                   <p> A centralized hotel management platform built to coordinate daily operations across reception,
@@ -546,9 +565,15 @@
                     DESKTOP APPLICATION • IT MANAGEMENT
                 </span>
 
-                <h3>
-                    Management Console
-                </h3>
+                <div class ="project-image">
+                    <img src="{{ url_for('static', filename='images/ManagementConsole.png') }}"
+                    alt="Smart Hotel logo">
+                    <h3>
+                        Management Console
+                    </h3>
+
+
+                </div>
 
                                 
                 <p>
@@ -627,9 +652,8 @@
         </article>
 
 
-
         <!-- ================================================= -->
-        <!-- AI HOTEL MAINTENANCE SYSTEM -->
+        <!-- FILEFLOW -->
         <!-- ================================================= -->
 
         <article class="project-card">
@@ -641,92 +665,17 @@
             <div class="project-content">
 
                 <span class="project-type">
-                    FULL-STACK • AI • WEB APPLICATION
-                </span>
-
-                <h3>
-                    AI Hotel Maintenance System
-                </h3>
-
-                <p>
-                    A web-based maintenance management system designed
-                    for hotels to report problems, manage technicians
-                    and housekeeping staff, and intelligently recommend
-                    suitable workers for maintenance tasks.
-                </p>
-
-
-                <div class="project-features">
-
-                    <span>Maintenance Reports</span>
-                    <span>Worker Management</span>
-                    <span>AI Assignment</span>
-                    <span>Task Management</span>
-                    <span>Public Reporting</span>
-                    <span>Dashboards</span>
-
-                </div>
-
-
-                <div class="deployment">
-
-                    <strong>Development:</strong>
-
-                    <span>Local</span>
-
-                    <b>→</b>
-
-                    <span>Testing</span>
-
-                    <b>→</b>
-
-                    <span>Belmo Hosting</span>
-
-                    <b>→</b>
-
-                    <span>Live</span>
-
-                </div>
-
-
-                <div class="tech-stack">
-
-                    <span>Python</span>
-                    <span>Flask</span>
-                    <span>MySQL</span>
-                    <span>SQLAlchemy</span>
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-
-
-        <!-- ================================================= -->
-        <!-- CONVERTMANAGER -->
-        <!-- ================================================= -->
-
-        <article class="project-card">
-
-            <div class="project-number">
-                04
-            </div>
-
-            <div class="project-content">
-
-                <span class="project-type">
                     WEB APPLICATION • FILE PROCESSING
                 </span>
+                <div class ="project-image">
+                    <img src="{{ url_for('static', filename='images/FileFlow.png') }}"
+                    alt="Smart Hotel logo">
+                    <h3>
+                        FileFlow
+                    </h3>
 
-                <h3>
-                    FileFlow
-                </h3>
+
+                </div>
 
                 
                 <p>
@@ -811,7 +760,7 @@
         <article class="project-card">
 
             <div class="project-number">
-                05
+                04
             </div>
 
             <div class="project-content">
@@ -819,10 +768,17 @@
                 <span class="project-type">
                     DESKTOP APPLICATION • SOFTWARE
                 </span>
+                <div class ="project-image">
+                    <img src="{{ url_for('static', filename='images/ConvertManager.png') }}"
+                    alt="Smart Hotel logo">
+                    <h3>
+                        ConvertManager
+                    </h3>
 
-                <h3>
-                    ConvertManager
-                </h3>
+
+                </div>
+
+                
 
                 <p>
                     A desktop file conversion application designed to
@@ -890,6 +846,82 @@
 
         </article>
 
+        <!-- ================================================= -->
+        <!-- AI HOTEL MAINTENANCE SYSTEM -->
+        <!-- ================================================= -->
+
+        <article class="project-card">
+
+            <div class="project-number">
+                05
+            </div>
+
+            <div class="project-content">
+
+                <span class="project-type">
+                    FULL-STACK • AI • WEB APPLICATION
+                </span>
+
+                <h3>
+                    AI Hotel Maintenance System
+                </h3>
+
+                <p>
+                    A web-based maintenance management system designed
+                    for hotels to report problems, manage technicians
+                    and housekeeping staff, and intelligently recommend
+                    suitable workers for maintenance tasks.
+                </p>
+
+
+                <div class="project-features">
+
+                    <span>Maintenance Reports</span>
+                    <span>Worker Management</span>
+                    <span>AI Assignment</span>
+                    <span>Task Management</span>
+                    <span>Public Reporting</span>
+                    <span>Dashboards</span>
+
+                </div>
+
+
+                <div class="deployment">
+
+                    <strong>Development:</strong>
+
+                    <span>Local</span>
+
+                    <b>→</b>
+
+                    <span>Testing</span>
+
+                    <b>→</b>
+
+                    <span>Belmo Hosting</span>
+
+                    <b>→</b>
+
+                    <span>Live</span>
+
+                </div>
+
+
+                <div class="tech-stack">
+
+                    <span>Python</span>
+                    <span>Flask</span>
+                    <span>MySQL</span>
+                    <span>SQLAlchemy</span>
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+
+                </div>
+
+            </div>
+
+        </article>
 
 
         <!-- ================================================= -->
@@ -899,7 +931,7 @@
         <article class="project-card">
 
             <div class="project-number">
-                05
+                06
             </div>
 
             <div class="project-content">
